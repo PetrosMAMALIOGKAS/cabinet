@@ -1,0 +1,29 @@
+main.contact-page {
+  margin-top: 130px;
+}
+
+.contact-page footer {
+  margin-top: 0;
+}
+
+.contact-page .page-title {
+  text-align: center;
+}
+
+.contact-page .page-title h2 {
+  font-size: 36px;
+  font-weight: bold;
+  font-style: normal;
+  color: #303030;
+  margin-bottom: 20px;
+}
+
+.contact-page .page-title p {
+  font-family: 'Droid Serif';
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: normal;
+  font-style: italic;
+  color: #868686;
+  margin-bottom: 30px;
+}

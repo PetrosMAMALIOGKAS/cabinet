@@ -1,0 +1,46 @@
+main.rendez-vous-page {
+  margin-top: 200px;
+}
+
+.rendez-vous-page .page-title {
+  text-align: center;
+}
+
+.rendez-vous-page .page-title h2 {
+  font-size: 36px;
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: 20px;
+}
+
+.rendez-vous-page .page-title .subtitle {
+  font-family: 'Droid Serif';
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: normal;
+  font-style: italic;
+  color: #868686;
+  margin-bottom: 50px;
+  padding-left: 20px;
+}
+
+.rendez-vous-page .form-contact-wrapper,
+.rendez-vous-page .map-wrapper {
+  width: 50%;
+}
+
+/*  <thank-you-page>   */
+main.thank-you-page {
+  margin-top: 200px;
+  padding-bottom: 204px;
+}
+
+/*  </thank-you-page>   */
+
+/*  <error-page>   */
+main.error-page {
+  margin-top: 200px;
+  padding-bottom: 204px;
+}
+
+/*  </error-page>   */
