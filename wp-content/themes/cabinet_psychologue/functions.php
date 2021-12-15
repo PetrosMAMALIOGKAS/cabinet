@@ -12,7 +12,7 @@ require_once( THEME_FOLDER . '/inc/ajax-functions.php');
 require_once( THEME_FOLDER . '/inc/http-functions.php');
 require_once( THEME_FOLDER . '/inc/forms-functions.php');
 require_once( THEME_FOLDER . '/inc/emailing-functions.php');
-
+require_once( THEME_FOLDER . '/inc/admin-functions.php');
 
 
 /**************************************************
@@ -147,12 +147,12 @@ function psy_load_js_assets() {
 add_action('wp_enqueue_scripts', 'psy_load_js_assets');
 
 
-/****************************************************************
+/*************************************************************
 *           Loading css files
-****************************************************************/
+***********************************************************/
 function psy_load_css_assets() {
   
-  if ( is_page( 'services' ) ) {
+  if ( is_page( 'services' ) || is_page( 'rendez-vous' ) ) {
     wp_enqueue_style( 
       'service-page-styles', 
       get_bloginfo('template_url') . '/css/service-page-styles.css' 
@@ -223,9 +223,14 @@ function psy_set_default_slidermeta($post_ID) {
 add_action('wp_insert_post', 'psy_set_default_slidermeta');
 
 
-/**********************************************************
- *   slider short code definition
- *********************************************************/
+/***********************************************************************************************************
+
+/**
+ * slider short code definition
+ *
+ * @param [type] $atts
+ * @return void
+ */
 function simple_slider_shortcode($atts = null) {
  	global $add_my_script, $ss_atts;
  	$add_my_script = true;
@@ -353,7 +358,12 @@ add_filter( 'excerpt_length', 'psy_custom_excerpt_length', 999 );
 // add_action('init','add_cors_http_header');
 
 
-// Add specific CSS class by filter.
+/**
+ * Add specific CSS class by filter.
+ *
+ * @param [type] $classes
+ * @return void
+ */
 function psy_add_classes_to_body_tag( $classes ) {
   if (is_page( 'contact' )) {
     return array_merge( $classes, array( 'contact-page' ) );
@@ -363,3 +373,69 @@ function psy_add_classes_to_body_tag( $classes ) {
   }
 } 
 add_filter( 'body_class', 'psy_add_classes_to_body_tag');
+
+
+/**
+ * Inline script printed out in the footer 
+ *   that gives a succes or error message on form submit.
+ *
+ * @return void
+ */
+function psy_add_inline_javascript_to_rendezvous_page() {
+    global $post;
+    $post_slug = get_site_url() . '/' . $post->post_name . '/?result=';
+    $form_succes = $post_slug . 'succes';
+    $form_error = $post_slug . 'error';
+    if (is_page( 'rendez-vous' )) : ?>
+      <script>
+        var message_tag = document.getElementById('submit-rendez-vous-form-message');
+        var current_url = document.location.href;
+        if (current_url == "<?php echo $form_succes; ?>") {
+          message_tag.innerHTML = "Your rendez vous has been register. We will contact you as soon as possible";
+          jQuery( "#submit-rendez-vous-form-message" ).css('color', 'green');
+        }
+
+        if (current_url == "<?php echo $form_error; ?>") {
+          message_tag.innerHTML = "Error on registering your rendez-vous. Please try again later.";
+          jQuery( "#submit-rendez-vous-form-message" ).css('color', 'red');
+        }
+
+        setTimeout( function(){ 
+            jQuery( "#submit-rendez-vous-form-message" ).fadeOut( "slow" );
+          }  , 2000 );
+
+          setTimeout( function(){ 
+            jQuery( "#submit-rendez-vous-form-message" ).empty();
+            jQuery( "#submit-rendez-vous-form-message" ).css('display', 'inline');
+          }  , 3000 );
+        
+
+      </script>
+    <?php
+    endif;
+}
+add_action('wp_footer', 'psy_add_inline_javascript_to_rendezvous_page');
+
+
+
+/**
+ * Create/add Acf options page to admin menu
+ *
+ * @return void
+ */
+function my_acf_op_init() {
+	
+	// Check function exists.
+	if( function_exists('acf_add_options_page') ) {
+		
+		// Register options page.
+		$option_page = acf_add_options_page(array(
+			'page_title' 	=> __('Theme General Settings'),
+			'menu_title' 	=> __('Theme Settings'),
+			'menu_slug' 	=> 'theme-general-settings',
+			'capability'	=> 'edit_posts',
+			'redirect'		=> false
+		));
+	}
+}
+add_action('acf/init', 'my_acf_op_init');

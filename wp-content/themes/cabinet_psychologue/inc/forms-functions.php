@@ -1,15 +1,14 @@
 <?php
 
 function psy_question_form_traitement() {
-	if ( ! isset( $_POST['cagnote-don-envoi'] ) || ! isset( $_POST['cagnotte-verif'] ) )  {
+	if ( ! isset( $_POST['question_form_envoi'] ) || ! isset( $_POST['nonce_question'] ) )  {
 		return;
 	}
 
-	if ( ! wp_verify_nonce( $_POST['cagnotte-verif'], 'faire-don' ) ) {
+	if ( ! wp_verify_nonce( $_POST['nonce_question'], 'submit_question_form' ) ) {
 		return;
 	}
 
-//	$don = intval( $_POST['don'] );
   $question_name = $_POST['question_name'];
   $question_email = $_POST['question_email'];
   $question_message = $_POST['question_message'];
@@ -43,7 +42,6 @@ function psy_question_form_traitement() {
       'ID' => '',
       'post_author' => 1, 
       'post_title' => $post_title,
-      'post_content' => 'paok',
       'post_type' => 'question',
       'post_status' => 'publish'
     );
@@ -57,7 +55,7 @@ function psy_question_form_traitement() {
 			$url .= '/thank-you';
 		}
 
-		$url = add_query_arg( 'source',"question", $url  );
+		$url = add_query_arg( 'source', 'question', $url  );
 
   
 
@@ -108,3 +106,64 @@ if ( isset( $_GET['question-erreur'] ) ) {
 
 	printf( '<div class="error"><p>%1$s</p></div>', esc_html( $message ) );
 }
+
+/************************************************** */
+function psy_rendez_vous_form_traitement() {
+	if ( ! isset( $_POST['rendez_vous_form_envoi'] ) || ! isset( $_POST['nonce_rendez_vous'] ) )  {
+		return;
+	}
+
+	if ( ! wp_verify_nonce( $_POST['nonce_rendez_vous'], 'submit_rendez_vous_form' ) ) {
+		return;
+	}
+
+	$rendez_vous_name = $_POST['rendez_vous_name'];
+  $rendez_vous_email = $_POST['rendez_vous_email'];
+  $rendez_vous_phone = $_POST['rendez_vous_phone'];
+	$rendez_vous_date = $_POST['rendez_vous_date'];
+  $rendez_vous_age = $_POST['rendez_vous_age'];
+  $rendez_vous_reason = $_POST['rendez_vous_reason'];
+  $rendez_vous_message = $_POST['rendez_vous_message'];
+
+	
+	$random_number = rand(0, 1000000);
+  $rendez_vous_post_title = 'rendez-vous-patient-id_' . $random_number;
+  
+	$new_post_args = array(
+		'ID' => '',
+		'post_author' => 1, 
+		'post_title' => $rendez_vous_post_title,
+		'post_type' => 'rendez_vous',
+		'post_status' => 'publish'
+	);
+  
+  $the_post_id = wp_insert_post( $new_post_args );
+
+
+	update_field( 'field_61a8cd79ad6ba', $rendez_vous_name, $the_post_id );
+	update_field( 'field_61a8cd87ad6bb', $rendez_vous_email, $the_post_id );
+	update_field( 'field_61a8cda6ad6bc', $rendez_vous_phone, $the_post_id );
+	update_field( 'field_61a8cdd2ad6bd', $rendez_vous_date, $the_post_id );
+	update_field( 'field_61a8ce17ad6be', $rendez_vous_age, $the_post_id );
+	update_field( 'field_61a8cf3cad6bf', $rendez_vous_reason, $the_post_id );
+	update_field( 'field_61a8cfa7ad6c0', $rendez_vous_message, $the_post_id );
+
+	
+	$url = get_site_url() . '/rendez-vous/';
+	//$url = wp_get_referer();
+
+	$result = '';
+	if ($the_post_id == 0 ) { // error
+		$result =  'error';
+	} else { // success
+		$result = 'succes';
+	}
+
+	$url = add_query_arg( 'result', $result, $url  );
+
+
+	wp_safe_redirect( $url );
+	exit();
+
+}
+add_action( 'template_redirect', 'psy_rendez_vous_form_traitement' );

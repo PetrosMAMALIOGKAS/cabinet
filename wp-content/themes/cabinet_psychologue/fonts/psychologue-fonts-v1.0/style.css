@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'psychologue';
+  src:  url('fonts/psychologue.eot?n7dw8d');
+  src:  url('fonts/psychologue.eot?n7dw8d#iefix') format('embedded-opentype'),
+    url('fonts/psychologue.ttf?n7dw8d') format('truetype'),
+    url('fonts/psychologue.woff?n7dw8d') format('woff'),
+    url('fonts/psychologue.svg?n7dw8d#psychologue') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.psychologue-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'psychologue' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.psychologue-icon-home:before {
+  content: "\e900";
+}
+.psychologue-icon-pencil:before {
+  content: "\e905";
+}
+.psychologue-icon-mic:before {
+  content: "\e91e";
+}
+.psychologue-icon-files-empty:before {
+  content: "\e925";
+}
+.psychologue-icon-file-text2:before {
+  content: "\e926";
+}
+.psychologue-icon-folder:before {
+  content: "\e92f";
+}
+.psychologue-icon-price-tags:before {
+  content: "\e936";
+}
+.psychologue-icon-coin-euro:before {
+  content: "\e93c";
+}
+.psychologue-icon-lifebuoy:before {
+  content: "\e941";
+}
+.psychologue-icon-phone:before {
+  content: "\e942";
+}
+.psychologue-icon-envelop:before {
+  content: "\e945";
+}
+.psychologue-icon-location:before {
+  content: "\e947";
+}
+.psychologue-icon-location2:before {
+  content: "\e948";
+}
+.psychologue-icon-compass:before {
+  content: "\e949";
+}
+.psychologue-icon-map:before {
+  content: "\e94b";
+}
+.psychologue-icon-map2:before {
+  content: "\e94c";
+}
+.psychologue-icon-clock:before {
+  content: "\e94e";
+}
+.psychologue-icon-clock2:before {
+  content: "\e94f";
+}
+.psychologue-icon-calendar:before {
+  content: "\e953";
+}
+.psychologue-icon-bubbles2:before {
+  content: "\e96d";
+}
+.psychologue-icon-bubbles4:before {
+  content: "\e970";
+}
+.psychologue-icon-unlocked:before {
+  content: "\e990";
+}
+.psychologue-icon-fire:before {
+  content: "\e9a9";
+}
+.psychologue-icon-accessibility:before {
+  content: "\e9b2";
+}
+.psychologue-icon-power:before {
+  content: "\e9b5";
+}
+.psychologue-icon-eye:before {
+  content: "\e9ce";
+}
+.psychologue-icon-sun:before {
+  content: "\e9d4";
+}
+.psychologue-icon-heart:before {
+  content: "\e9da";
+}
+.psychologue-icon-heart-broken:before {
+  content: "\e9db";
+}
+.psychologue-icon-man-woman:before {
+  content: "\e9de";
+}
+.psychologue-icon-smile:before {
+  content: "\e9e1";
+}
+.psychologue-icon-sad:before {
+  content: "\e9e5";
+}
+.psychologue-icon-frustrated:before {
+  content: "\e9ff";
+}
+.psychologue-icon-exit:before {
+  content: "\ea14";
+}
+.psychologue-icon-infinite:before {
+  content: "\ea2f";
+}
+.psychologue-icon-facebook2:before {
+  content: "\ea91";
+}
+.psychologue-icon-instagram:before {
+  content: "\ea92";
+}
+.psychologue-icon-telegram:before {
+  content: "\ea95";
+}
+.psychologue-icon-twitter:before {
+  content: "\ea96";
+}
+.psychologue-icon-youtube:before {
+  content: "\ea9d";
+}
+.psychologue-icon-youtube2:before {
+  content: "\ea9e";
+}
+.psychologue-icon-github:before {
+  content: "\eab0";
+}
+.psychologue-icon-wordpress:before {
+  content: "\eab4";
+}
+.psychologue-icon-file-pdf:before {
+  content: "\eadf";
+}

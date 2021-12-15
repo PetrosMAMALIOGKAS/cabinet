@@ -134,7 +134,7 @@
         
         <!-- <h2>notre gagnote actuelle <?php //echo get_option( 'valeur_cagnotte', 0 ); ?></h2> -->
         <form action="" method="POST" name="questionForm" onsubmit="return validateQuestionForm()" class="comment-form">
-          <?php wp_nonce_field( 'faire-don', 'cagnotte-verif' ); ?>
+          <?php wp_nonce_field( 'submit_question_form', 'nonce_question' ); ?>
 
           <!-- <div>
             <label for="don"><?php //_e( 'Amount donation' ); ?></label>
@@ -162,7 +162,7 @@
               rows="5" cols="33"></textarea>
           </div>
 
-          <input id="submit" type="submit" name="cagnote-don-envoi" id="submit" class="submit" value="<?php esc_attr_e( 'Submit Question', 'msk' ); ?>" />
+          <input id="submit" type="submit" name="question_form_envoi" id="submit" class="submit" value="<?php esc_attr_e( 'Submit Question', 'msk' ); ?>" />
         </form>
       </div>
 

@@ -14,11 +14,11 @@
 
   <div class="row container">
     <div class="form-contact-wrapper">
-      <h3>Ask Us</h3>
+      <h3>Ask Us<span id="submit-rendez-vous-form-message"></span></h3>
       
       <!-- <h2>notre gagnote actuelle <?php //echo get_option( 'valeur_cagnotte', 0 ); ?></h2> -->
-      <form action="#" method="POST" name="rendezVousForm" onsubmit="return validateRendezVousForm()" class="comment-form">
-        <?php wp_nonce_field( 'faire-don', 'cagnotte-verif' ); ?>
+      <form action="" method="POST" name="rendezVousForm" onsubmit="return validateRendezVousForm()" class="comment-form">
+        <?php wp_nonce_field( 'submit_rendez_vous_form', 'nonce_rendez_vous' ); ?>
 
         <div>
           <label for="rendez-vous-name" class="input-label"><?php _e( 'Name' ); ?></label><br/>
@@ -38,8 +38,14 @@
           <input id="rendez-vous-email" type="text"  class="input-text" name="rendez_vous_phone" />
         </div>
 
+        <div class="date-rendez-wrapper">
+          <label for="rendez-vous-date" class="input-label"><?php _e( 'Date' ); ?></label><br/>
+          <div id="rendez-vous-error-date" class="form-error"></div>
+          <input id="rendez-vous-date" type="date"  class="input-text" name="rendez_vous_date" />
+        </div>
 
-        <div>
+
+        <div class="select-wrapper">
           <label for="rendez-vous-age" class="input-label"><?php _e( 'Age group' ); ?></label><br/>
           <select name="rendez_vous_age" id="rendez-vous-age">
             <option value=""><?php _e( 'Please choose an option' ); ?></option>
@@ -53,7 +59,7 @@
           </select>
         </div>
 
-        <div>
+        <div class="select-wrapper">
           <label for="rendez-vous-reason" class="input-label"><?php _e( 'Reason of Appointement' ); ?></label><br/>
           <select name="rendez_vous_reason" id="rendez-vous-reason">
             <option value=""><?php _e( 'Please choose an option' ); ?></option>
@@ -70,11 +76,11 @@
         <div>
           <label for="rendez-vous-message" class="input-label"><?php _e( 'Question' ); ?></label><br/>
           <div id="error-question" class="form-error"></div>
-          <textarea id="rendez-vous-message"  class="input-textarea" name="rendez-vous_message"
+          <textarea id="rendez-vous-message"  class="input-textarea" name="rendez_vous_message"
             rows="5" cols="33"></textarea>
         </div>
 
-        <input id="submit" type="submit" name="cagnote-don-envoi" id="submit" class="submit" value="<?php esc_attr_e( 'Submit', 'msk' ); ?>" />
+        <input id="submit" type="submit" name="rendez_vous_form_envoi" id="submit" class="submit" value="<?php esc_attr_e( 'Submit', 'msk' ); ?>" />
       </form>
     </div>
 
