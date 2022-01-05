@@ -48,7 +48,7 @@
         </div>
 
         <div class="slogan">
-          <h3 >Appelez-nous: +145699878</h3>
+          <h3 >Appelez-nous: <?php echo get_option( 'personal_phone_cabinet_fix' ); ?></h3>
         </div>
 
         <div class="button-rendez-vous">

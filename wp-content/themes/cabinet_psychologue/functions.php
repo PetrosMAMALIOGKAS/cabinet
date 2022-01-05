@@ -13,14 +13,16 @@ require_once( THEME_FOLDER . '/inc/http-functions.php');
 require_once( THEME_FOLDER . '/inc/forms-functions.php');
 require_once( THEME_FOLDER . '/inc/emailing-functions.php');
 require_once( THEME_FOLDER . '/inc/admin-functions.php');
+require_once( THEME_FOLDER . '/inc/theme-support.php');
 
-
-/**************************************************
- *             Site Setup
- *************************************************/
+/**
+ * Site Setup
+ *
+ * @return void
+ */
 function psy_psychologue_theme_setup() {
   // add Featured image support
-  add_theme_support('post-thumbnails');
+ // add_theme_support('post-thumbnails');
 
   // add Custom logo support
   add_theme_support('custom-logo');
@@ -32,14 +34,16 @@ function psy_psychologue_theme_setup() {
   ));
 
   // Add Post format support
-  add_theme_support('post-formats', array( 'aside', 'gallery', 'link' ));
+ // add_theme_support('post-formats', array( 'aside', 'gallery', 'link' ));
 }
 add_action('after_setup_theme', 'psy_psychologue_theme_setup');
 
 
-/***********************************************************
- *     Custom Logo Declaration
- **********************************************************/
+/**
+ * Custom Logo Declaration
+ *
+ * @return void
+ */
 // function psy_custom_logo_setup()
 // {
 //   $defaults = array(
@@ -58,9 +62,11 @@ add_action('after_setup_theme', 'psy_psychologue_theme_setup');
 
 
 
-/**********************************************
-*     Widjets activation
-*************************************************/
+/**
+ * Widjets activation
+ *
+ * @return void
+ */
 function psy_init_widgets() {
     register_sidebar(array(
         'name'          => __('Sidebar categories', 'textdomain'),
@@ -109,17 +115,23 @@ function psy_init_widgets() {
 
 add_action('widgets_init', 'psy_init_widgets');
 
-/********************************************
- *     register jquery flexslider
- *******************************************/
+
+/**
+ * Register jquery flexslider
+ *
+ * @return void
+ */
 function psy_register_my_scripts() {
   wp_register_script( 'flexslider', get_stylesheet_directory_uri() . '/flexslider/jquery.flexslider-min.js', array('jquery'), '1.0.0', true );
 }
 add_action('init', 'psy_register_my_scripts');
 
-/****************************************************************
-*           Loading js files
-****************************************************************/
+
+/**
+ * Loading js files
+ *
+ * @return void
+ */
 function psy_load_js_assets() {
   wp_enqueue_script('jquery-core',  '/wp-includes/js/jquery/jquery.js');
   wp_enqueue_script('flexslider',  get_stylesheet_directory_uri() . '/flexslider/jquery.flexslider-min.js');
@@ -147,9 +159,11 @@ function psy_load_js_assets() {
 add_action('wp_enqueue_scripts', 'psy_load_js_assets');
 
 
-/*************************************************************
-*           Loading css files
-***********************************************************/
+/**
+ * Loading css files
+ *
+ * @return void
+ */
 function psy_load_css_assets() {
   
   if ( is_page( 'services' ) || is_page( 'rendez-vous' ) ) {
@@ -177,15 +191,38 @@ function psy_load_css_assets() {
       get_bloginfo('template_url') . '/css/rendez-vous-page.css' 
     );
   }
-
-
-
 }
 add_action( 'wp_enqueue_scripts', 'psy_load_css_assets' );
 
-/********************************************************
- *          print js script to the footer
- *******************************************************/
+/**
+ * Load the css styles or script for a specific page on back end
+ *
+ * @param [type] $hook : The current admin page.
+ * @return void
+ */
+function sunset_load_admin_scripts( $hook ){
+  // prints the name of the  page juste after body tag
+  // echo $hook;
+	
+	if( 'toplevel_page_psychologue_options' != $hook ){ return; }
+	
+	wp_register_style( 'psy_admin_styles', get_template_directory_uri() . '/css/psy.admin.css', array(), '1.0.0', 'all' );
+	wp_enqueue_style( 'psy_admin_styles' );
+
+  // Enqueues all scripts, styles, settings, and templates necessary to use all media JS APIs.
+  wp_enqueue_media();
+
+  wp_register_script( 'psy-admin-script', get_template_directory_uri() . '/js/psychologue.admin.js', array('jquery'), '1.0.0', true );
+	wp_enqueue_script( 'psy-admin-script' );
+}
+add_action( 'admin_enqueue_scripts', 'sunset_load_admin_scripts' );
+
+
+/**
+ *   print js script to the footer
+ *
+ * @return void
+ */
 function psy_print_my_script_to_footer() {
 	global $add_my_script, $ss_atts;
 	if ( $add_my_script ) {
@@ -213,17 +250,18 @@ function psy_print_my_script_to_footer() {
 add_action('wp_footer', 'psy_print_my_script_to_footer', 99);
 
 
-/************************************************************
- *    creating a post meta value(url) for each slide
- ***********************************************************/
+/**
+ *  creating a post meta value(url) for each slide
+ *
+ * @param [type] $post_ID
+ * @return void
+ */
 function psy_set_default_slidermeta($post_ID) {
   add_post_meta($post_ID, 'slider-url', 'http://', true);
   return $post_ID;
 }
 add_action('wp_insert_post', 'psy_set_default_slidermeta');
 
-
-/***********************************************************************************************************
 
 /**
  * slider short code definition
@@ -418,24 +456,3 @@ add_action('wp_footer', 'psy_add_inline_javascript_to_rendezvous_page');
 
 
 
-/**
- * Create/add Acf options page to admin menu
- *
- * @return void
- */
-function my_acf_op_init() {
-	
-	// Check function exists.
-	if( function_exists('acf_add_options_page') ) {
-		
-		// Register options page.
-		$option_page = acf_add_options_page(array(
-			'page_title' 	=> __('Theme General Settings'),
-			'menu_title' 	=> __('Theme Settings'),
-			'menu_slug' 	=> 'theme-general-settings',
-			'capability'	=> 'edit_posts',
-			'redirect'		=> false
-		));
-	}
-}
-add_action('acf/init', 'my_acf_op_init');

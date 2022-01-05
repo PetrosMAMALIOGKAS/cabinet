@@ -10,6 +10,7 @@
 // define( 'SMTP_FROMNAME', 'Kelly Koe' );         // SMTP From name
 
 
+// musts define all the constant inside the function ex. SMTP_HOST
 function psy_send_smtp_email( $phpmailer) {
     $phpmailer->isSMTP();
     $phpmailer->Host       = SMTP_HOST;

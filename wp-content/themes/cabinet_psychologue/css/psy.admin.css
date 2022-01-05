@@ -1,0 +1,26 @@
+/* 
+  =================================================
+  Styles for the page theme options on the backend 
+  ================================================
+
+*/
+
+#wpbody {
+  border: 3px solid red;
+}
+
+.image-container {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.profile-picture {
+  height: 300px;
+  width: auto;
+  overflow: hidden;
+  margin: 20px auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
