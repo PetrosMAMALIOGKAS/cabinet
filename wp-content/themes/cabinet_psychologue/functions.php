@@ -5,6 +5,7 @@ define( "THEME_FOLDER", WP_CONTENT_DIR . '/themes/cabinet_psychologue' );
 
 // require_once( THEME_FOLDER . '/inc/database-functions.php');
 
+require_once( THEME_FOLDER . '/inc/cleanup-functions.php');
 require_once( THEME_FOLDER . '/inc/custom-post-types.php');
 require_once( THEME_FOLDER . '/inc/custom-taxonomies.php');
 require_once( THEME_FOLDER . '/inc/customiser.php');
@@ -453,6 +454,8 @@ function psy_add_inline_javascript_to_rendezvous_page() {
     endif;
 }
 add_action('wp_footer', 'psy_add_inline_javascript_to_rendezvous_page');
+
+
 
 
 

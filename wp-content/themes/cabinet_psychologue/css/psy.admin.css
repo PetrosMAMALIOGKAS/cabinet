@@ -24,3 +24,12 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.options-input-titles-container {
+  display: flex;
+  width: 368px;
+}
+
+.options-input-title {
+  width: 50%;
+}

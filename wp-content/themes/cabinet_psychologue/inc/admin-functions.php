@@ -188,7 +188,7 @@ function psy_code_postale() {
 function psy_ville() {
   $adresse_ville = esc_attr( get_option( 'adresse_ville' ) );
 
-  echo '<input type="text" name="adresse_code_postale" value="' . $adresse_ville . '" placeholder="Ville" />';
+  echo '<input type="text" name="adresse_ville" value="' . $adresse_ville . '" placeholder="Ville" />';
 }
 
 function psy_access_immeuble() {
@@ -196,7 +196,7 @@ function psy_access_immeuble() {
   $adresse_digicode = esc_attr( get_option( 'adresse_digicode' ) );
   $adresse_information_supplementaire = esc_attr( get_option( 'adresse_information_supplementaire' ) );
 
-  echo '<input type="text" name="adresse_digicode" value="' . $adresse_digicode . '" placeholder="Digicode" /> <input type="text" name="adresse_digicode" value="' . $adresse_information_supplementaire . '" placeholder="Extra info" />';
+  echo '<div class="options-input-titles-container"><p class="options-input-title">Digicode</p><p class="options-input-title">Extra information</p></div><input type="text" name="adresse_digicode" value="' . $adresse_digicode . '" placeholder="Digicode" /> <input type="text" name="adresse_information_supplementaire" value="' . $adresse_information_supplementaire . '" placeholder="Extra info" />';
 
 }
 
