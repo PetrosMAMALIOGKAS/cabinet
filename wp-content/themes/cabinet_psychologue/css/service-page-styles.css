@@ -60,10 +60,6 @@
   height: auto;
 }
 
-.services-page-photos-container .transparency-layer {
-  opacity: 0;
-}
-
 .services-page-photos-container img:hover {
   opacity: 0.3;
 }

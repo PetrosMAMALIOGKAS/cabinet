@@ -1,8 +1,10 @@
 <?php
 
-/*****************************************************************
- *          Create CPT slider taxonony
- *****************************************************************/
+/**
+ * Create CPT slider taxonony
+ *
+ * @return void
+ */
 function psy_create_slider_location_taxonomy()
 {
 	register_taxonomy(
@@ -23,9 +25,12 @@ function psy_create_slider_location_taxonomy()
 add_action( 'init', 'psy_create_slider_location_taxonomy' );
 
 
-/*****************************************************************
- *          Create CPT serices taxonony
- *****************************************************************/
+
+/**
+ * Create CPT services taxonony
+ *
+ * @return void
+ */
 function psy_create_services_location_taxonomy()
 {
 	register_taxonomy(

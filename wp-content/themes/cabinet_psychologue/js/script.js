@@ -98,3 +98,23 @@ function phonenumber(inputtxt) {
     return false;
   }
 }
+
+function mobileMenuFunction() {
+  var x = document.getElementById('menu-mobile');
+  if (x.style.display === 'block') {
+    x.style.display = 'none';
+  } else {
+    x.style.display = 'block';
+  }
+}
+
+jQuery(function ($) {
+  $(document).ready(function () {
+    $(window).on('resize', function (e) {
+      var window_width = $(window).width();
+      if (window_width > 1024) {
+        $('#menu-mobile').css('display', 'none');
+      }
+    });
+  });
+});

@@ -1,8 +1,10 @@
 <?php
 
-/*************************************************************
- *         Create Slider Elements custom post type
- *************************************************************/
+/**
+ * Create Slider Elements custom post type
+ *
+ * @return void
+ */
 function psy_create_slider_custom_posttype() {
   $args = array(
     'public' => false,
@@ -18,17 +20,19 @@ function psy_create_slider_custom_posttype() {
 
 add_action( 'init', 'psy_create_slider_custom_posttype' );
 
-/*************************************************************
- *         Create Sevices custom post type
- *************************************************************/
+/**
+ * Create Sevices custom post type
+ *
+ * @return void
+ */
 function psy_create_services_custom_posttype() {
 
   $args = array(
-    'public' => false,
+    'public' => true,
     'show_ui' => true,
     'menu_icon' => 'dashicons-universal-access-alt',
     'capability_type' => 'post',
-    'rewrite' => array( 'slug' => 'service',
+    'rewrite' => array( 'slug' => 'services',
                         'with_front' => false ),
     'label'  => 'Services',
     'supports' => array( 'title', 'editor', 'custom-fields', 'thumbnail', 'page-attributes')
@@ -38,23 +42,10 @@ function psy_create_services_custom_posttype() {
 add_action( 'init', 'psy_create_services_custom_posttype' );
 
 
-// function psy_create_flight_custom_posttype() {
-
-//   $args = array(
-//     'public' => true,
-//     'show_ui' => true,
-//     'menu_icon' => 'dashicons-universal-access-alt',
-//     'capability_type' => 'post',
-//     'rewrite' => array( 'slug' => 'flight',
-//                         'with_front' => false ),
-//     'label'  => 'Flights',
-//   );
-//   register_post_type( 'flight', $args );
-// }
-// add_action( 'init', 'psy_create_flight_custom_posttype' );
-
-/** 
- *    Create Custom post type Personne
+/**
+ * Create Question custom post type
+ *
+ * @return void
  */
 function psy_create_question_custom_posttype() {
 

@@ -9,7 +9,7 @@
   <div class="page-title">
     <h2 class="title">Make an Appointment</h2>
     <p class="subtitle">Fill in the form below or simply make an appointment by call
-</p>
+    </p>
   </div>
 
   <div class="row container">

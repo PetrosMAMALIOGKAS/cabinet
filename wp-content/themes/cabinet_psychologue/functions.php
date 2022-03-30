@@ -167,16 +167,11 @@ add_action('wp_enqueue_scripts', 'psy_load_js_assets');
  */
 function psy_load_css_assets() {
   
-  if ( is_page( 'services' ) || is_page( 'rendez-vous' ) ) {
+  if ( is_page( 'services' ) || is_page( 'rendez-vous' ) || is_page( 'contact' ) ) {
     wp_enqueue_style( 
       'service-page-styles', 
       get_bloginfo('template_url') . '/css/service-page-styles.css' 
     );
-
-    // wp_enqueue_style( 
-    //   'leaflet-styles', 
-    //   get_bloginfo('template_url') . '/css/leaflet.css' 
-    // );
   }
 
   if ( is_page( 'contact' ) ) {

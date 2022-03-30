@@ -45,10 +45,6 @@
           </a>
         </div>
 
-        <div class="hamburger-icon-wrapper">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
-
         <div class="slogan">
           <h3 >Appelez-nous: <?php echo get_option( 'personal_phone_cabinet_fix' ); ?></h3>
         </div>
@@ -60,6 +56,35 @@
     </div>
 
     <div class="down-line">
+      <div class="mobile-container">
+
+        <!-- <div id="myLinks">
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div> -->
+        <div class="icon-mobile-container">
+          <div class="hamburger-icon-wrapper" onclick="mobileMenuFunction()">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </div>
+        </div>
+        
+
+        <?php
+        $args = array(
+            'theme_location' => 'primary',
+            'container' => 'div',
+            'menu_id' => 'menu-mobile'
+        );
+
+        wp_nav_menu( $args );
+        ?>
+
+
+      <!-- End smartphone / tablet look -->
+      </div>
+
+
       <div class="container">
         <nav>
           <?php
