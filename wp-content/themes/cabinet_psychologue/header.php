@@ -35,18 +35,25 @@
 
     <div class="upper-line">
       <div class="container row flex-wrap">
-        <div class="logo-wrapper">
-          <?php the_custom_logo(); ?>
-        </div>
 
-        <div class="title-wrapper">
-          <a href="<?php echo home_url(); ?>">
-            <h1 class="site-name"><?php bloginfo( 'name' ); ?></h1>
-          </a>
+
+        <div class="logo-container">
+
+          <div class="logo-wrapper">
+            <?php the_custom_logo(); ?>
+          </div>
+
+          <div class="title-wrapper">
+            <a href="<?php echo home_url(); ?>">
+              <h1 class="site-name"><?php bloginfo( 'name' ); ?></h1>
+            </a>
+          </div>
+
         </div>
+        
 
         <div class="slogan">
-          <h3 >Appelez-nous: <?php echo get_option( 'personal_phone_cabinet_fix' ); ?></h3>
+          <h3><span class="slogan-texte">Contactez-nous: </span><span class="numero-telephone"><?php echo get_option( 'personal_phone_cabinet_fix' ); ?></span></h3>
         </div>
 
         <div class="button-rendez-vous">
@@ -56,18 +63,25 @@
     </div>
 
     <div class="down-line">
+
+      
+
       <div class="mobile-container">
 
-        <!-- <div id="myLinks">
-          <a href="#news">News</a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
-        </div> -->
-        <div class="icon-mobile-container">
-          <div class="hamburger-icon-wrapper" onclick="mobileMenuFunction()">
-            <i class="fa fa-bars" aria-hidden="true"></i>
+        <div class="mobile-upper-wrapper">
+
+          <div class="button-rendez-vous">
+            <a href="<?php echo get_site_url() . '/rendez-vous'; ?>"><div>Prenez un rendez-vous</div></a>
           </div>
+
+          <div class="icon-mobile-container">
+            <div class="hamburger-icon-wrapper" onclick="mobileMenuFunction()">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+          </div>
+
         </div>
+        
         
 
         <?php
@@ -80,8 +94,6 @@
         wp_nav_menu( $args );
         ?>
 
-
-      <!-- End smartphone / tablet look -->
       </div>
 
 

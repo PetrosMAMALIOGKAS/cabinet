@@ -2,24 +2,13 @@ jQuery(function ($) {
   $(document).ready(function () {
     var header = $('.header');
 
-    // add shadow when scroll not on top of the page
-    // $(window).scroll(function(e){
-    //     if(header.offset().top !== 0){
-    //         if(!header.hasClass('shadow')){
-    //             header.addClass('shadow');
-    //         }
-    //     }else{
-    //         header.removeClass('shadow');
-    //     }
-    // });
-
     // le menu mobile
     $('.hamburger-icon-wrapper').click(function () {
       if ($(this).hasClass('ouvert')) {
-        $('.menu-mobile').fadeOut();
+        // $('#menu-mobile').fadeOut();
         $(this).removeClass('ouvert');
       } else {
-        $('.menu-mobile').fadeIn();
+        // $('#menu-mobile').fadeIn();
         $(this).addClass('ouvert');
       }
     });
@@ -28,12 +17,12 @@ jQuery(function ($) {
     $(document).click(function (event) {
       var $target = $(event.target);
       if (
-        !$target.closest('.picto-burger').length &&
-        $('.picto-burger').hasClass('ouvert')
+        !$target.closest('.hamburger-icon-wrapper').length &&
+        $('.hamburger-icon-wrapper').hasClass('ouvert')
       ) {
-        var el = document.getElementsByClassName('picto-burger')[0];
+        var el = document.getElementsByClassName('hamburger-icon-wrapper')[0];
         $(el).removeClass('ouvert');
-        $('.menu-mobile').fadeOut();
+        $('#menu-mobile').css('display', 'none');
       }
     });
 
@@ -103,8 +92,10 @@ function mobileMenuFunction() {
   var x = document.getElementById('menu-mobile');
   if (x.style.display === 'block') {
     x.style.display = 'none';
+    // x.classList.remove('menu-mobile-active');
   } else {
     x.style.display = 'block';
+    // x.classList.add('menu-mobile-active');
   }
 }
 
