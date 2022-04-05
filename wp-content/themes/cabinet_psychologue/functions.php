@@ -15,6 +15,7 @@ require_once( THEME_FOLDER . '/inc/forms-functions.php');
 require_once( THEME_FOLDER . '/inc/emailing-functions.php');
 require_once( THEME_FOLDER . '/inc/admin-functions.php');
 require_once( THEME_FOLDER . '/inc/theme-support.php');
+require_once( THEME_FOLDER . '/inc/functions-general.php');
 
 /**
  * Site Setup
@@ -449,6 +450,7 @@ function psy_add_inline_javascript_to_rendezvous_page() {
     endif;
 }
 add_action('wp_footer', 'psy_add_inline_javascript_to_rendezvous_page');
+
 
 
 

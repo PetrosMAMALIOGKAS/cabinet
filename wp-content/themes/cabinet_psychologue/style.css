@@ -213,7 +213,7 @@ header nav ul.main-menu li > a {
 }
 
 main {
-  margin-top: 80px;
+  margin-top: 68px;
 }
 
 main .flexslider {
@@ -241,24 +241,32 @@ main .flexslider .flex-viewport {
 
 .slide-content h3.slide-title {
   font-weight: 700;
-  font-size: 54.4583px;
+  font-size: 40px;
   color: rgb(221, 221, 223);
-  top: 87.1854px;
-  left: 251.87px;
+  /* top: 87.1854px;
+  left: 251.87px; */
   margin: 0px;
   z-index: auto;
   height: 68.7537px;
+  backdrop-filter: blur(5px);
+  width: 100vw;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  line-height: 38px;
 }
 
 .slide-content div.slide-text {
   font-style: italic;
   font-family: droid serif;
-  font-size: 15.2531px;
+  font-size: 12.2531px;
   color: rgb(255, 255, 255);
   z-index: auto;
   filter: none;
   border-left: 2px solid #fff;
   padding-left: 20px;
+  backdrop-filter: blur(5px);
+  width: 100vw;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
 }
 
 .slide-content div.button-container {
@@ -284,7 +292,7 @@ main .flexslider .flex-viewport {
 }
 
 .flexslider .slides img {
-  height: 550px;
+  max-height: 550px;
   -moz-user-select: none;
 }
 
@@ -345,6 +353,7 @@ main .flexslider .flex-viewport {
 .services-wrapper .icon-container i {
   margin-left: 5px;
   margin-top: 10px;
+  color: #a67467;
 }
 
 .services-wrapper .icon-container div {
@@ -404,6 +413,7 @@ main .flexslider .flex-viewport {
   font-style: normal;
   color: #303030;
   margin-bottom: 20px;
+  line-height: 35px;
 }
 
 .psychologue-description p.profession {
@@ -465,11 +475,16 @@ main .flexslider .flex-viewport {
   line-height: 24px;
   font-weight: 400;
   font-style: normal;
-  font-size: 18pt;
+  font-size: 17pt;
+}
+
+.psychologue-image-mobile {
+  display: none;
 }
 
 .psychologue-image {
   width: 50%;
+  margin-right: 20px;
 }
 
 .psychologue-image img {
@@ -509,7 +524,7 @@ main .flexslider .flex-viewport {
 .presentation-therapy .description {
   font-family: 'Droid Serif';
   font-size: 16px;
-  line-height: 28px;
+  line-height: 24px;
   font-weight: normal;
   font-style: italic;
   color: #ffffff;
@@ -593,6 +608,7 @@ main .flexslider .flex-viewport {
   font-style: normal;
   margin-top: 50px;
   margin-bottom: 20px;
+  line-height: 30px;
 }
 
 .blog-wrapper .subtitle {
@@ -610,7 +626,12 @@ main .flexslider .flex-viewport {
 }
 
 .blog-wrapper .post:nth-child(2),
-.blog-wrapper .post:nth-child(5) {
+.blog-wrapper .post:nth-child(5),
+.blog-wrapper .post:nth-child(8),
+.blog-wrapper .post:nth-child(11),
+.blog-wrapper .post:nth-child(14),
+.blog-wrapper .post:nth-child(17),
+.blog-wrapper .post:nth-child(20) {
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -694,6 +715,7 @@ main .flexslider .flex-viewport {
   text-transform: none;
   text-decoration: none;
   margin-top: 10px;
+  min-height: 52px;
 }
 
 .post .categories a {
@@ -724,18 +746,36 @@ footer {
 
 .footer-intro {
   background-color: #e7e7e7;
-  height: 300px;
+  /* height: 300px; */
   padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+footer .footer-intro .container {
+  flex-wrap: wrap;
 }
 
 .footer-intro .container > div {
-  width: 23%;
+  min-width: 500px;
+  width: 50%;
   margin-top: 40px;
   text-align: center;
 }
 
-.footer-intro .container > div:first-child {
+/* .footer-intro .container > div:first-child {
   margin-left: 4%;
+} */
+.footer-intro .left-wrapper,
+.footer-intro .right-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.left-wrapper > div,
+.right-wrapper > div {
+  width: 50%;
+  min-width: 240px;
 }
 
 .footer-intro i {
@@ -800,6 +840,7 @@ footer {
 
 .footer-main .about-wrapper {
   margin-right: 5%;
+  margin-left: 20px;
 }
 
 .footer-main .about-wrapper p,
@@ -1161,6 +1202,22 @@ div.psychologue-slogan p.slogan-container {
   .container {
     max-width: 1024px;
   }
+
+  .post .informations-post {
+    margin-top: -58px;
+  }
+
+  .post .texte {
+    height: 75px;
+  }
+
+  .footer-main .services-container {
+    margin-right: 20px;
+  }
+
+  .blog-wrapper .post-wrapper .post:first-child {
+    margin-left: 10px;
+  }
 }
 
 /*  tablette  */
@@ -1218,7 +1275,6 @@ div.psychologue-slogan p.slogan-container {
 
   header div.upper-line .container .slogan {
     width: 60%;
-    /* margin-right: 5%; */
   }
 
   header div.down-line .hamburger-icon-wrapper {
@@ -1299,6 +1355,50 @@ div.psychologue-slogan p.slogan-container {
     color: #35333a;
     text-align: center;
   }
+
+  .psychologue-description {
+    margin-top: 50px;
+  }
+
+  .psychologue-image {
+    margin-top: 40px;
+  }
+
+  .psychologue-description p.appelez-nous {
+    margin-top: 0;
+  }
+
+  .blog-wrapper .post-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .blog-wrapper .post-wrapper .post {
+    min-width: 310px;
+  }
+
+  .blog-wrapper .post-wrapper .post:first-child {
+    margin-left: 15vw;
+  }
+
+  .blog-wrapper .post-wrapper .post:nth-child(2) {
+    margin-left: 10vw;
+  }
+
+  .blog-wrapper .post-wrapper .post:nth-child(3) {
+    margin: 40px auto 0;
+  }
+
+  .footer-intro .container > div {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 885px) {
+  .blog-wrapper .post-wrapper .post:first-child,
+  .blog-wrapper .post-wrapper .post:nth-child(2),
+  .blog-wrapper .post-wrapper .post:nth-child(3) {
+    margin: 0 auto 40px;
+  }
 }
 
 /* mobile */
@@ -1306,10 +1406,59 @@ div.psychologue-slogan p.slogan-container {
   header .slogan h3 span.slogan-texte {
     font-size: 0.75em;
   }
+
+  main .flexslider .flex-viewport {
+    height: 433px;
+  }
+
+  .services-photos-wrapper {
+    display: none;
+  }
+
+  .services-widjets {
+    display: none;
+  }
+
+  .psychologue-description {
+    width: 100%;
+  }
+
+  .psychologue-image-mobile {
+    display: block;
+    width: 60%;
+  }
+
+  .psychologue-image {
+    display: none;
+  }
+
+  .footer-main .container {
+    flex-wrap: wrap;
+  }
+
+  .footer-main .container > div:first-child {
+    width: 100%;
+  }
+
+  .footer-main .about-wrapper h3 {
+    text-align: center;
+  }
+
+  .footer-main .container .services-container {
+    width: 40%;
+    margin-top: 40px;
+  }
+
+  .footer-main .container .navigation-container {
+    width: 47%;
+    margin-right: 5%;
+    text-align: right;
+    margin-top: 40px;
+  }
 }
 
 /* mobile small screens */
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 600px) {
   header .slogan {
     display: none;
   }
@@ -1326,5 +1475,39 @@ div.psychologue-slogan p.slogan-container {
   div.upper-line .container > div.logo-container {
     width: 100%;
     justify-content: center;
+  }
+
+  .slide-content h3.slide-title {
+    display: none;
+  }
+
+  .slide-content div.slide-text {
+    display: none;
+  }
+  .slide-content div.button-container {
+    margin-top: 220px;
+  }
+
+  .footer-intro .left-wrapper,
+  .footer-intro .right-wrapper {
+    flex-direction: column;
+  }
+
+  .left-wrapper div:nth-child(1),
+  .left-wrapper div:nth-child(2),
+  .right-wrapper > div {
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-intro .container > div {
+    min-width: unset;
+  }
+
+  .footer-main .container .navigation-container,
+  .footer-main .container .services-container {
+    width: 100%;
+    text-align: center;
   }
 }

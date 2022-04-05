@@ -23,7 +23,7 @@
       </div>
 
 
-      <div>
+      <div class="navigation-container">
         <h3>Navigation</h3>
         <?php
         $args = array(
@@ -36,7 +36,7 @@
         ?>
       </div>
 
-      <div>
+      <div class="services-container">
         <h3>Services</h3>
         <ul class="sevices-menu">
           <?php

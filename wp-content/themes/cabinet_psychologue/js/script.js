@@ -108,4 +108,9 @@ jQuery(function ($) {
       }
     });
   });
+
+  // Remove br tags inside psy resume
+  if ($(window).width() < 769) {
+    $('.resume br').remove();
+  }
 });

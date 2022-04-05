@@ -55,12 +55,22 @@
             <div class="service-0<?php echo $counter; ?> row services">
               <div class="icon-container">
                 <div>
-                  <i class="fa <?php echo get_field( 'fonts_awesome_icon' ); ?>" aria-hidden="true"></i>
+                  <?php 
+                  $margin_left_value = "";
+                  if (get_field('icon_margin_left')) {
+                    $margin_left_value = "margin-left: " . get_field('icon_margin_left') . "px;";
+                  }
+                  $margin_top_value = "";
+                  if (get_field('icon_margin_top')) {
+                    $margin_top_value = "margin-top: " . get_field('icon_margin_top') . "px;";
+                  }
+                  ?>
+                  <i class="fa <?php echo get_field( 'fonts_awesome_icon' ); ?>" aria-hidden="true" style="<?php echo $margin_left_value . " " .  $margin_top_value; ?>"></i>
                 </div>
               </div>
               <div class="description">
                 <h3><?php echo the_title(); ?></h3>
-                <p><?php the_content(); ?></p>
+                <p><?php echo get_words(get_the_content(), 15) . ' [..]'; ?></p>
                 <?php  $counter++; ?>
               </div>
             </div>

@@ -36,7 +36,6 @@
     <div class="upper-line">
       <div class="container row flex-wrap">
 
-
         <div class="logo-container">
 
           <div class="logo-wrapper">
@@ -51,7 +50,6 @@
 
         </div>
         
-
         <div class="slogan">
           <h3><span class="slogan-texte">Contactez-nous: </span><span class="numero-telephone"><?php echo get_option( 'personal_phone_cabinet_fix' ); ?></span></h3>
         </div>
@@ -63,8 +61,6 @@
     </div>
 
     <div class="down-line">
-
-      
 
       <div class="mobile-container">
 
@@ -82,8 +78,6 @@
 
         </div>
         
-        
-
         <?php
         $args = array(
             'theme_location' => 'primary',
